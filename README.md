@@ -38,7 +38,7 @@ type RedisDB struct {
 	count     int
 	msize     int
 }
-type SwitchCache struct {
+type MemCache struct {
 	l         sync.RWMutex
 	db        *RedisDB
 }
@@ -117,7 +117,7 @@ type SwitchCache struct {
     * 存在返回1，不存在返回0
 ## 调用示例
 ```
-    cache, err := NewSwitchCache(&CacheConf{
+    cache, err := NewMemCache(&CacheConf{
         MaxSize:10,
         TtlPeriodMillSecond: 500,
     })
